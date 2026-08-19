@@ -211,11 +211,9 @@ header.hero{
 }
 .origin-box h4{font-family:var(--serif);font-size:1.08rem;margin:0 0 10px;}
 .origin-box > p{margin:0 0 18px;font-size:0.94rem;}
-.origin-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 18px;padding:16px;background:var(--bg-alt);border-radius:4px;}
-.origin-step{display:flex;flex-direction:column;align-items:center;text-align:center;flex:1;min-width:100px;}
-.origin-step .oi{font-size:1.7rem;margin-bottom:6px;}
-.origin-step .ot{font-size:0.8rem;color:var(--ink-soft);font-weight:600;line-height:1.4;}
-.origin-arrow{color:var(--accent);font-size:1.2rem;opacity:0.55;flex-shrink:0;}
+.origin-flow-figure{margin:0 0 18px;}
+.origin-flow-figure img{border:1px solid var(--line);border-radius:4px;}
+.origin-flow-figure figcaption{margin-top:10px;font-size:0.82rem;color:var(--ink-faint);text-align:center;}
 .origin-box .origin-note{margin:0;font-size:0.85rem;color:var(--ink-faint);}
 .origin-box .origin-note a{color:var(--accent-deep);text-decoration:underline;}
 
@@ -500,13 +498,10 @@ footer a{color:var(--accent-deep);text-decoration:none;}
             <span class="ex-label">起點 · 最基礎的工作</span>
             <h4>先把行程表「掃」進電腦，長出一個基礎的數位行程網站</h4>
             <p>不管手上拿到的是旅行社給的紙本行程表，還是網路上的行程網頁，都可以直接掃描、拍照，或複製貼上，交給 AI Agent 讀取解析——讓 AI 把日期、地點、交通方式自動整理成結構化資料，生成一個最基礎的「數位行程網站」骨架。這是後續一切策展工作的地基：有了骨架，才有地方讓「每日流水線」與「主題專題」逐步往上疊加。</p>
-            <div class="origin-flow">
-              <div class="origin-step"><span class="oi">📄</span><span class="ot">紙本／網路行程表</span></div>
-              <span class="origin-arrow">→</span>
-              <div class="origin-step"><span class="oi">🤖</span><span class="ot">AI Agent 掃描讀取</span></div>
-              <span class="origin-arrow">→</span>
-              <div class="origin-step"><span class="oi">🌐</span><span class="ot">基礎數位行程網站</span></div>
-            </div>
+            <figure class="origin-flow-figure">
+              <img src="images/origin-flow.jpg" alt="紙本行程本透過 AI 掃描解析，轉化為右側數位行程網站介面的示意圖">
+              <figcaption>紙本行程本 → AI 逐項解析日期、路線、城市、交通 → 長成右側的數位行程網站</figcaption>
+            </figure>
             <p class="origin-note">實例：<a href="https://maskywg.github.io/northeurope/%E5%8C%97%E6%AD%90%E5%9B%9B%E5%9C%8B.html" target="_blank" rel="noopener">「全覽北歐四國・北角日不落 15 日」</a>這個主站，最初就是把行健旅遊給的紙本行程表交給 AI 讀取，才長出這個帶有 15 天流水線骨架的基礎網站——之後才在上面陸續疊加地圖、匯率看板、購物清單。</p>
           </div>
           <div class="stage-tasks">
