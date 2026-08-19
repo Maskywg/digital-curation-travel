@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>從走馬看花到數位策展｜AI 數位策展深旅方法論</title>
+<meta name="description" content="AI 賦能的數位策展深度旅行方法論：如何用 AI 把隨手拍的旅行照片，變成一份策展級的個人知識庫。以北歐四國 15 日為實戰案例。">
+<meta property="og:title" content="從走馬看花到數位策展｜AI 數位策展深旅方法論">
+<meta property="og:description" content="AI 賦能的數位策展深度旅行方法論，以北歐四國 15 日為實戰案例。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/slide-01.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+<style>
+:root{
+  --bg:#f6f1e6;
+  --bg-alt:#efe6d3;
+  --paper:#fffdf8;
+  --ink:#211d17;
+  --ink-soft:#5a544a;
+  --ink-faint:#948c7c;
+  --accent:#a8703e;
+  --accent-deep:#7c4f28;
+  --accent-soft:#e4c9a3;
+  --line:#ddd0b3;
+  --navy:#161f2b;
+  --navy-soft:#26384c;
+  --ice:#8fb8c9;
+  --good:#3f6e4f;
+  --shadow:0 18px 40px -20px rgba(33,29,23,0.35);
+  --serif:"Noto Serif TC","Iowan Old Style",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--accent-deep);font-weight:700;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent);display:inline-block;}
+h1,h2,h3{font-family:var(--serif);font-weight:700;color:var(--ink);margin:0 0 0.5em;}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.25;}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.35;}
+h3{font-size:1.15rem;line-height:1.5;}
+p{margin:0 0 1em;color:var(--ink-soft);}
+section{padding:88px 0;position:relative;}
+.section-head{max-width:680px;margin-bottom:48px;}
+.section-head p{font-size:1.02rem;}
+
+/* ---------- FIGURE (PDF slide references) ---------- */
+.figure{margin:0;}
+.figure img{border:1px solid var(--line);border-radius:4px;box-shadow:var(--shadow);}
+.figure figcaption{margin-top:10px;font-size:0.76rem;color:var(--ink-faint);letter-spacing:0.02em;}
+.figure figcaption b{color:var(--accent-deep);font-weight:700;}
+.figure.on-dark img{border-color:rgba(255,255,255,0.18);}
+.figure.on-dark figcaption{color:#8f9aa3;}
+
+/* ---------- EXAMPLE BOX (real northeurope citation) ---------- */
+.example-box{
+  margin-top:24px;background:var(--bg-alt);border:1px solid var(--line);border-left:3px solid var(--accent);
+  padding:20px 24px;border-radius:2px;
+}
+.example-box .ex-label{font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:8px;display:block;}
+.example-box p{margin:0;font-size:0.9rem;}
+.example-box a{color:var(--accent-deep);text-decoration:underline;}
+
+/* ---------- NAV ---------- */
+nav.topnav{
+  position:sticky;top:0;z-index:40;
+  background:rgba(246,241,230,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav.topnav .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:14px;padding-bottom:14px;
+}
+.navmark{font-family:var(--serif);font-weight:700;font-size:1.05rem;letter-spacing:0.03em;}
+.navlinks{display:flex;gap:26px;list-style:none;margin:0;padding:0;}
+.navlinks a{
+  font-size:0.86rem;color:var(--ink-soft);text-decoration:none;
+  border-bottom:1px solid transparent;padding-bottom:2px;transition:.2s;
+}
+.navlinks a:hover{color:var(--accent-deep);border-color:var(--accent);}
+@media(max-width:720px){.navlinks{display:none;}}
+
+/* ---------- HERO ---------- */
+header.hero{
+  padding:110px 0 90px;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(168,112,62,0.14), transparent 55%),
+    radial-gradient(ellipse at 90% 30%, rgba(143,184,201,0.18), transparent 50%),
+    var(--bg);
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:52px;align-items:center;}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr;}}
+.hero .eyebrow{margin-bottom:22px;}
+.hero h1{margin-bottom:22px;}
+.hero .lede{font-size:1.14rem;color:var(--ink-soft);}
+.hero-quote{
+  margin-top:34px;padding:18px 22px;border-left:3px solid var(--accent);
+  background:var(--paper);font-family:var(--serif);font-style:italic;
+  color:var(--ink);box-shadow:var(--shadow);
+}
+.hero-figure figcaption{text-align:center;}
+.scrolldown{
+  margin-top:44px;display:inline-flex;align-items:center;gap:10px;
+  font-size:0.82rem;color:var(--ink-faint);text-decoration:none;
+}
+.scrolldown .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:bob 1.6s infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/* ---------- PAIN POINTS ---------- */
+.pain{background:var(--navy);color:#f1ece0;}
+.pain .section-head h2{color:#fff;}
+.pain .section-head p{color:#c3c0b5;}
+.pain-figure{max-width:640px;margin:0 auto 44px;}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.12);}
+.pain-card{background:var(--navy);padding:30px 26px;}
+.pain-card .icon{font-size:1.6rem;margin-bottom:14px;opacity:0.9;}
+.pain-card h3{color:#fff;font-size:1.05rem;}
+.pain-card p{color:#a9a595;font-size:0.93rem;margin:0;}
+.pain-cta{margin-top:40px;font-family:var(--serif);font-size:1.3rem;color:#f1ece0;font-style:italic;}
+.pain-cta b{color:var(--ice);font-style:normal;}
+
+/* ---------- REFRAME ---------- */
+.reframe-figure{max-width:560px;margin:0 auto 44px;text-align:center;}
+.reframe-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:720px){.reframe-grid{grid-template-columns:1fr;}}
+.reframe-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:4px;
+  padding:32px;box-shadow:var(--shadow);
+}
+.reframe-card.no{border-top:4px solid #b25b4a;}
+.reframe-card.yes{border-top:4px solid var(--good);}
+.reframe-mark{font-size:1.6rem;display:inline-block;margin-bottom:14px;}
+.reframe-card.no .reframe-mark{color:#b25b4a;}
+.reframe-card.yes .reframe-mark{color:var(--good);}
+.reframe-card h3{margin-bottom:10px;}
+.reframe-card p{margin:0;font-size:0.96rem;}
+
+/* ---------- CONCEPT (3 col) ---------- */
+.concept-layout{display:grid;grid-template-columns:0.8fr 1.2fr;gap:40px;align-items:start;}
+@media(max-width:880px){.concept-layout{grid-template-columns:1fr;}}
+.concept-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+.concept-card{
+  background:var(--paper);border:1px solid var(--line);padding:26px 26px;border-radius:4px;
+  position:relative;
+}
+.concept-num{
+  position:absolute;top:-14px;left:26px;background:var(--accent);color:#fff;
+  width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:0.82rem;font-weight:700;font-family:var(--serif);
+}
+.concept-card h3{margin-top:8px;}
+.concept-card p{font-size:0.93rem;margin:0;}
+
+/* ---------- DUAL TRACK ---------- */
+.dual{padding:0;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg);}
+.dual-lead{padding:64px 0 0;text-align:center;}
+.dual-lead .figure{max-width:760px;margin:0 auto;}
+.dual-lead figcaption{text-align:center;}
+.dual-grid{display:grid;grid-template-columns:1fr 1fr;min-height:340px;margin-top:56px;}
+@media(max-width:800px){.dual-grid{grid-template-columns:1fr;}}
+.dual-panel{padding:56px 44px;display:flex;flex-direction:column;justify-content:center;}
+.dual-panel.left{background:linear-gradient(160deg,#e9dcc0,#d9c9a0);color:var(--ink);}
+.dual-panel.right{background:linear-gradient(160deg,var(--navy),#0d141d);color:#eef1f2;}
+.dual-tag{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.7;margin-bottom:14px;}
+.dual-panel h3{font-size:1.5rem;margin-bottom:14px;}
+.dual-panel.left h3{color:var(--accent-deep);}
+.dual-panel.right h3{color:var(--ice);}
+.dual-panel p{font-size:0.98rem;}
+.dual-panel.left p{color:#4a4436;}
+.dual-panel.right p{color:#b7bfc7;}
+.dual-line{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-top:16px;}
+
+/* ---------- STAGES (tabs) ---------- */
+.stages-figure{max-width:820px;margin:0 auto 48px;text-align:center;}
+.stage-tabs{display:flex;gap:10px;margin-bottom:36px;flex-wrap:wrap;}
+.stage-tab{
+  flex:1;min-width:180px;background:var(--paper);border:1px solid var(--line);
+  padding:16px 18px;cursor:pointer;text-align:left;border-radius:4px;transition:.2s;
+}
+.stage-tab:hover{border-color:var(--accent);}
+.stage-tab.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.stage-tab .stage-role{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.65;display:block;margin-bottom:4px;}
+.stage-tab .stage-name{font-family:var(--serif);font-weight:700;font-size:1.1rem;}
+.stage-panel{display:none;}
+.stage-panel.active{display:block;animation:fadein .35s ease;}
+@keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.stage-body{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:start;}
+@media(max-width:880px){.stage-body{grid-template-columns:1fr;}}
+.stage-tasks{display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:22px;}
+.task-card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:22px 24px;}
+.task-card .task-en{font-size:0.72rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;display:block;}
+.task-card h4{font-family:var(--serif);font-size:1.02rem;margin:0 0 8px;}
+.task-card p{font-size:0.9rem;margin:0;}
+.stage-side{position:sticky;top:90px;}
+.stage-side .figure figcaption{text-align:center;}
+.stage-output{
+  background:var(--bg-alt);border-left:3px solid var(--accent);padding:14px 20px;
+  font-size:0.92rem;color:var(--ink-soft);
+}
+.stage-output b{color:var(--accent-deep);}
+
+/* ---------- CASE STUDIES ---------- */
+.case-intro{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:30px 32px;margin-bottom:44px;box-shadow:var(--shadow);}
+.case-intro-body{display:grid;grid-template-columns:1fr 260px;gap:28px;align-items:center;}
+@media(max-width:760px){.case-intro-body{grid-template-columns:1fr;}}
+.case-intro .flagship{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  margin-top:18px;padding-top:18px;border-top:1px dashed var(--line);
+}
+.flagship-label{font-size:0.8rem;color:var(--ink-faint);}
+.flagship-name{font-family:var(--serif);font-size:1.3rem;color:var(--accent-deep);}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--navy);color:#fff;text-decoration:none;
+  padding:11px 22px;border-radius:2px;font-size:0.88rem;letter-spacing:0.02em;
+  transition:.2s;
+}
+.btn:hover{background:var(--accent-deep);}
+.btn.ghost{background:transparent;border:1px solid var(--ink);color:var(--ink);}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent-deep);}
+
+.case-cat{margin-bottom:52px;}
+.case-cat-head{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+.case-cat-head h3{font-size:1.05rem;color:var(--accent-deep);margin:0;}
+.case-cat-head .cat-desc{font-size:0.85rem;color:var(--ink-faint);}
+.slide-ref{display:flex;gap:20px;align-items:flex-start;margin-bottom:22px;flex-wrap:wrap;}
+.slide-ref img{width:200px;flex-shrink:0;border:1px solid var(--line);border-radius:4px;box-shadow:var(--shadow);}
+.slide-ref-text{flex:1;min-width:220px;font-size:0.84rem;color:var(--ink-faint);padding-top:4px;}
+.slide-ref-text b{color:var(--accent-deep);}
+.case-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;}
+.case-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:4px;
+  padding:22px 22px 20px;text-decoration:none;display:block;
+  transition:.2s;position:relative;overflow:hidden;
+}
+.case-card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent-soft);transition:.2s;
+}
+.case-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.case-card:hover::before{background:var(--accent);}
+.case-card .cc-title{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.02rem;margin-bottom:8px;}
+.case-card .cc-desc{font-size:0.86rem;color:var(--ink-soft);margin:0 0 14px;}
+.case-card .cc-link{font-size:0.78rem;color:var(--accent-deep);display:flex;align-items:center;gap:6px;}
+.case-card .cc-link::after{content:"→";transition:.2s;}
+.case-card:hover .cc-link::after{transform:translateX(4px);}
+
+/* ---------- PHILOSOPHY ---------- */
+.phil{background:var(--bg-alt);}
+.phil-layout{display:grid;grid-template-columns:0.85fr 1.15fr;gap:40px;align-items:center;}
+@media(max-width:880px){.phil-layout{grid-template-columns:1fr;}}
+.phil-figure figcaption{text-align:center;}
+.phil-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+.phil-card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:26px;}
+.phil-card .check{color:var(--good);font-size:1.2rem;margin-bottom:10px;display:block;}
+.phil-card h3{font-size:1.02rem;}
+.phil-card p{font-size:0.92rem;margin:0;}
+
+/* ---------- CLOSING ---------- */
+.closing{
+  background:linear-gradient(180deg,var(--navy),#0c1219);
+  color:#eef1f2;text-align:center;
+}
+.closing .section-head{margin-left:auto;margin-right:auto;text-align:center;}
+.closing .eyebrow{color:var(--ice);}
+.closing .eyebrow::before{background:var(--ice);}
+.closing h2{color:#fff;}
+.closing .section-head p{color:#b7bfc7;}
+.closing-figure{max-width:600px;margin:0 auto 48px;}
+.closing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:left;margin-bottom:56px;}
+@media(max-width:820px){.closing-grid{grid-template-columns:1fr;}}
+.closing-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);padding:26px;border-radius:4px;}
+.closing-card h3{color:var(--ice);font-size:1rem;}
+.closing-card p{color:#a9b0b6;font-size:0.9rem;margin:0;}
+.closing-final{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.5;margin-bottom:36px;}
+.closing-final b{color:var(--ice);font-weight:700;}
+.closing-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.closing .btn.ghost{border-color:rgba(255,255,255,0.4);color:#fff;}
+.closing .btn.ghost:hover{border-color:var(--ice);color:var(--ice);}
+
+footer{padding:40px 0;text-align:center;font-size:0.8rem;color:var(--ink-faint);border-top:1px solid var(--line);}
+footer a{color:var(--accent-deep);text-decoration:none;}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <div class="navmark">數位策展深旅</div>
+    <ul class="navlinks">
+      <li><a href="#pain">痛點</a></li>
+      <li><a href="#reframe">認知厚度</a></li>
+      <li><a href="#concept">什麼是策展式旅行</a></li>
+      <li><a href="#stages">三階段 SOP</a></li>
+      <li><a href="#cases">實戰案例</a></li>
+      <li><a href="#philosophy">無痛哲學</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow">AI 賦能的深度旅行方法論</span>
+      <h1>從走馬看花，<br>到數位策展。</h1>
+      <p class="lede">如何用 AI 把隨手拍的旅行照片與零碎筆記，變成一份可以被重新閱讀、重新走一遍的策展級個人知識庫——以北歐四國 15 日實戰案例為例。</p>
+      <div class="hero-quote">「深度旅行不再取決於待了多久，而取決於你帶回了多少認知厚度。」</div>
+      <a href="#pain" class="scrolldown"><span class="dot"></span> 往下看，先從痛點說起</a>
+    </div>
+    <figure class="figure hero-figure reveal">
+      <img src="images/slide-01.jpg" alt="簡報封面：從走馬看花到數位策展">
+      <figcaption>原始讀書會簡報封面 · <b>Slide 1 / 15</b></figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="pain" id="pain">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ⅰ. 為什麼要改變</span>
+      <h2>「上車睡覺、下車尿尿、沿路買藥」，真的只能這樣嗎？</h2>
+      <p>長途拉車行程最容易掉進這三個陷阱——不是不想深入了解，是現場真的沒有餘力。</p>
+    </div>
+    <figure class="figure on-dark pain-figure reveal">
+      <img src="images/slide-02.jpg" alt="簡報投影片：真的只能這樣嗎">
+      <figcaption>Slide 2 / 15</figcaption>
+    </figure>
+    <div class="pain-grid reveal">
+      <div class="pain-card">
+        <div class="icon">💤</div>
+        <h3>導遊講古像背書</h3>
+        <p>歷史太長、資訊太雜，催眠效果極佳，過耳即忘。</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">🔍</div>
+        <h3>查資料成本太高</h3>
+        <p>想了解路邊建築或植物，現場 Google 海撈耗時費力又掃興。</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">🥱</div>
+        <h3>體力與時差消耗</h3>
+        <p>長途旅行已經夠累，現場根本沒有心力做深度研究。</p>
+      </div>
+    </div>
+    <p class="pain-cta reveal">問題不在於你不夠認真，而在於<b>「理解」與「體驗」被迫擠在同一個時間點</b>發生。</p>
+  </div>
+</section>
+
+<section id="reframe">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ⅱ. 重新定義深度旅行</span>
+      <h2>從「物理時間」到「認知厚度」</h2>
+      <p>深度旅行的標準，一直被誤解了。</p>
+    </div>
+    <figure class="figure reframe-figure reveal">
+      <img src="images/slide-03.jpg" alt="簡報投影片：重新定義深度旅行">
+      <figcaption>Slide 3 / 15</figcaption>
+    </figure>
+    <div class="reframe-grid reveal">
+      <div class="reframe-card no">
+        <span class="reframe-mark">✕</span>
+        <h3>傳統迷思：受限於物理時間</h3>
+        <p>認為必須在當地定居、長住數月，體驗所謂的「Long Stay」，才夠格稱為「深度旅行」。</p>
+      </div>
+      <div class="reframe-card yes">
+        <span class="reframe-mark">✓</span>
+        <h3>策展典範：取決於大腦認知</h3>
+        <p>認知的深度，取決於觀察的敏銳度與認知的厚度。即便在現場僅停留一小時，只要能梳理出背後的地理、歷史與生活脈絡，就是貨真價實的深度旅行。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="concept">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ⅲ. 核心概念</span>
+      <h2>什麼是「數位策展式旅行」？</h2>
+      <p>把旅行者的身分，從被動的消費者，換成主動的採集者與編撰者。</p>
+    </div>
+    <div class="concept-layout reveal">
+      <figure class="figure">
+        <img src="images/slide-04.jpg" alt="簡報投影片：什麼是數位策展式旅行">
+        <figcaption>Slide 4 / 15</figcaption>
+      </figure>
+      <div class="concept-grid">
+        <div class="concept-card">
+          <span class="concept-num">1</span>
+          <h3>身分切換</h3>
+          <p>從「被動消費的觀光客」→ 帶有問題意識的「田野調查員」與「素材採集者」。</p>
+        </div>
+        <div class="concept-card">
+          <span class="concept-num">2</span>
+          <h3>AI = 策展助理</h3>
+          <p>利用 AI 進行海量現場素材的篩選、詮釋、重構，並結構化建站展出。</p>
+        </div>
+        <div class="concept-card">
+          <span class="concept-num">3</span>
+          <h3>終極目標</h3>
+          <p>將零散的照片與直覺，轉化為個人化、可流通、可長久保存的數位記憶庫。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dual">
+  <div class="wrap dual-lead">
+    <span class="eyebrow">Ⅳ. 雙軌理論</span>
+    <h2>現場留給感官，認知交給雲端</h2>
+    <figure class="figure reveal">
+      <img src="images/slide-05.jpg" alt="簡報投影片：雙軌深度旅行">
+      <figcaption>Slide 5 / 15</figcaption>
+    </figure>
+  </div>
+  <div class="dual-grid">
+    <div class="dual-panel left reveal">
+      <span class="dual-tag">第一軌 · 物理現場</span>
+      <h3>純粹感官體驗</h3>
+      <p>用雙眼看、舌頭嚐，專注於現場的震撼、美感與情緒。</p>
+      <p class="dual-line">「放下理解的重擔，在現場只負責採集樣本。」</p>
+    </div>
+    <div class="dual-panel right reveal">
+      <span class="dual-tag">第二軌 · 認知雲端</span>
+      <h3>交給 AI 延伸</h3>
+      <p>在旅行當晚或事後，讓 AI 補足歷史、地理與社會政策的理性脈絡。</p>
+      <p class="dual-line">「完美解決現場時間有限、無法深究的遺憾。」</p>
+    </div>
+  </div>
+</section>
+
+<section id="stages">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ⅴ. 實戰 SOP</span>
+      <h2>數位策展旅行的三階段全景流程</h2>
+      <p>行前、當下、事後——每個階段，你的角色與任務都不一樣。點選下方分頁看細節。</p>
+    </div>
+
+    <figure class="figure stages-figure reveal">
+      <img src="images/slide-06.jpg" alt="簡報投影片：三階段全景流程">
+      <figcaption>Slide 6 / 15</figcaption>
+    </figure>
+
+    <div class="stage-tabs reveal">
+      <button class="stage-tab active" data-target="stage-1">
+        <span class="stage-role">階段一 · 總策展人</span>
+        <span class="stage-name">行前 Pre-Trip</span>
+      </button>
+      <button class="stage-tab" data-target="stage-2">
+        <span class="stage-role">階段二 · 田野調查員</span>
+        <span class="stage-name">當下 On-Site</span>
+      </button>
+      <button class="stage-tab" data-target="stage-3">
+        <span class="stage-role">階段三 · 內容編撰家</span>
+        <span class="stage-name">事後 Post-Trip</span>
+      </button>
+    </div>
+
+    <div class="stage-panel active" id="stage-1">
+      <div class="stage-body">
+        <div>
+          <div class="stage-tasks">
+            <div class="task-card">
+              <span class="task-en">Curatorial Angles</span>
+              <h4>🎯 設定觀察母題</h4>
+              <p>預先定下 2–3 個切入點，帶著問題出發（例如：北歐生態、咖啡生活美學、公共政策）。</p>
+            </div>
+            <div class="task-card">
+              <span class="task-en">Digital Containers</span>
+              <h4>🏗️ 搭建數位展架</h4>
+              <p>預先建好網頁或筆記目錄，預留「每日流水線」與「主題專題區塊」等待現場填入。</p>
+            </div>
+            <div class="task-card">
+              <span class="task-en">Pre-prompting</span>
+              <h4>⚙️ 預載實戰工具與 AI 助理</h4>
+              <p>將匯率換算、當地實用語句、物種辨識的 AI 提示詞指令提前寫好，現場秒開秒用。</p>
+            </div>
+          </div>
+          <div class="stage-output">產出：<b>基礎網頁架構、觀察清單</b></div>
+          <div class="example-box">
+            <span class="ex-label">真實案例 · 北歐四國主站</span>
+            <p><a href="https://maskywg.github.io/northeurope/%E5%8C%97%E6%AD%90%E5%9B%9B%E5%9C%8B.html" target="_blank" rel="noopener">「全覽北歐四國・北角日不落 15 日」</a>就是行前搭好的數位展架——內建瑞典/芬蘭/挪威/丹麥四國即時匯率換算看板、每天一張 Leaflet 路線地圖（用編號大頭針標出當日景點順序，例如布里斯達冰河那天的三個停留點），以及依國家分類、隨行程天數自動切換的「當地特產與購物推薦」清單。這些都是出發前就先搭好架子，現場只要照著填。</p>
+          </div>
+        </div>
+        <div class="stage-side">
+          <figure class="figure">
+            <img src="images/slide-07.jpg" alt="簡報投影片：行前階段">
+            <figcaption>Slide 7 / 15</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-panel" id="stage-2">
+      <div class="stage-body">
+        <div>
+          <div class="stage-tasks">
+            <div class="task-card">
+              <span class="task-en">Anchor Capturing</span>
+              <h4>📸 錨點拍照法</h4>
+              <p>不只拍大景，刻意拍下「解說牌、建築銘牌、動植物特寫、超市標籤」。這些是回國後讓 AI 反查脈絡的資訊錨點。</p>
+            </div>
+            <div class="task-card">
+              <span class="task-en">Voice Memos</span>
+              <h4>🎙️ 30 秒語音碎記</h4>
+              <p>利用拉車或休息空檔，錄下 30 秒口語速記，捕捉當下最真實的情緒與感官（如：「峽灣水色偏乳藍」、「咖啡果酸明亮」）。</p>
+            </div>
+            <div class="task-card">
+              <span class="task-en">On-site Recognition</span>
+              <h4>🔎 現場即時 AI 辨識</h4>
+              <p>隨手拍照辨識花草野鳥，得知名稱後即收手，不深究，留待事後處理。</p>
+            </div>
+          </div>
+          <div class="stage-output">產出：<b>高資訊密度照片、真實情緒語音</b></div>
+        </div>
+        <div class="stage-side">
+          <figure class="figure">
+            <img src="images/slide-08.jpg" alt="簡報投影片：當下階段">
+            <figcaption>Slide 8 / 15</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-panel" id="stage-3">
+      <div class="stage-body">
+        <div>
+          <div class="stage-tasks">
+            <div class="task-card">
+              <span class="task-en">Filtering</span>
+              <h4>① 去粗取精</h4>
+              <p>從海量素材中，挑選出真正具備敘事代表性的影像切片。</p>
+            </div>
+            <div class="task-card">
+              <span class="task-en">Contextualization</span>
+              <h4>② 脈絡補全</h4>
+              <p>將照片錨點與語音丟給 AI，還原並延伸其歷史背景、生態習性或制度設計。</p>
+            </div>
+            <div class="task-card">
+              <span class="task-en">Structural Presentation</span>
+              <h4>③ 結構化建站佈展</h4>
+              <p>利用 AI 協助排版，將碎散資料烹調成一道道脈絡分明的互動式主題站點。</p>
+            </div>
+          </div>
+          <div class="stage-output">產出：<b>個人化專題站點、知識資產</b> ——「旅行的二次愉悅，從回到電腦前拆禮物開始。」</div>
+        </div>
+        <div class="stage-side">
+          <figure class="figure">
+            <img src="images/slide-09.jpg" alt="簡報投影片：事後階段">
+            <figcaption>Slide 9 / 15</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ⅵ. 實戰展示</span>
+      <h2>北歐四國・北角日不落 15 日數位旅行系統</h2>
+      <p>這套方法論不是紙上談兵——這是一趟真實的 15 天緊湊拉車行程，被轉化成一個主入口網站，搭配多個子主題專題站點。每張卡片都是真的網頁，點進去看看成品。</p>
+    </div>
+
+    <div class="case-intro reveal">
+      <div class="case-intro-body">
+        <div>
+          <p style="margin:0;">系統架構：一個<b>主入口網站</b>（15 天完整行程、地圖、每日流水線），搭配依觀察母題延伸出的<b>子主題專題站點</b>——把跟團拉車的行程，轉化為具備極高認知厚度的個人化知識作品。</p>
+          <div class="flagship">
+            <div>
+              <div class="flagship-label">主入口網站</div>
+              <div class="flagship-name">全覽北歐四國・北角日不落 15 日</div>
+            </div>
+            <a class="btn" href="https://maskywg.github.io/northeurope/%E5%8C%97%E6%AD%90%E5%9B%9B%E5%9C%8B.html" target="_blank" rel="noopener">看完整行程 →</a>
+          </div>
+        </div>
+        <figure class="figure" style="margin:0;">
+          <img src="images/slide-10.jpg" alt="簡報投影片：實戰展示總覽">
+          <figcaption style="text-align:center;">Slide 10 / 15</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="case-cat reveal">
+      <div class="case-cat-head">
+        <h3>專題一 · 人文與藝術脈絡</h3>
+        <span class="cat-desc">把路過的一座雕像、一棟建築，變成一篇完整的藝術史</span>
+      </div>
+      <div class="case-grid">
+        <a class="case-card" href="https://maskywg.github.io/vigeland/" target="_blank" rel="noopener">
+          <div class="cc-title">維吉蘭雕塑公園</div>
+          <p class="cc-desc">在石雕與無聲掙扎之間，通向人性的深處。</p>
+          <span class="cc-link">奧斯陸</span>
+        </a>
+        <a class="case-card" href="https://maskywg.github.io/grieg/" target="_blank" rel="noopener">
+          <div class="cc-title">葛利格 Edvard Grieg</div>
+          <p class="cc-desc">皮爾金組曲、a 小調鋼琴協奏曲、Troldhaugen 故居。</p>
+          <span class="cc-link">卑爾根</span>
+        </a>
+        <a class="case-card" href="https://maskywg.github.io/andersen/" target="_blank" rel="noopener">
+          <div class="cc-title">安徒生的童話王國</div>
+          <p class="cc-desc">歐登西的說故事人，與他筆下的童話世界。</p>
+          <span class="cc-link">歐登西</span>
+        </a>
+        <a class="case-card" href="https://maskywg.github.io/resonance/" target="_blank" rel="noopener">
+          <div class="cc-title">《Resonance》共鳴</div>
+          <p class="cc-desc">A-ha 鍵盤手 Magne Furuholmen 的廣場公共藝術。</p>
+          <span class="cc-link">卑爾根</span>
+        </a>
+        <a class="case-card" href="https://maskywg.github.io/sjomannsmonumentet/" target="_blank" rel="noopener">
+          <div class="cc-title">水手紀念碑</div>
+          <p class="cc-desc">托爾格廣場的青銅航海史詩。</p>
+          <span class="cc-link">卑爾根</span>
+        </a>
+        <a class="case-card" href="https://maskywg.github.io/hanseatic-architecture/" target="_blank" rel="noopener">
+          <div class="cc-title">漢薩同盟建築風格</div>
+          <p class="cc-desc">山牆、吊柱、磚造哥德式，附互動地圖與城市比較表。</p>
+          <span class="cc-link">跨城市專題</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="case-cat reveal">
+      <div class="case-cat-head">
+        <h3>專題二 · 生活與感官細節</h3>
+        <span class="cat-desc">連逛超市、路過木屋的顏色，都能變成一篇專題</span>
+      </div>
+      <div class="slide-ref">
+        <img src="images/slide-12.jpg" alt="簡報投影片：精品咖啡朝聖地圖">
+        <p class="slide-ref-text"><b>Slide 12 / 15</b> 簡報原本以「精品咖啡朝聖地圖」為例，說明日常生活觀察皆可策展。實際做出來的兩個站點：</p>
+      </div>
+      <div class="case-grid">
+        <a class="case-card" href="https://maskywg.github.io/falu-red-ochre/" target="_blank" rel="noopener">
+          <div class="cc-title">法倫紅與赭石黃</div>
+          <p class="cc-desc">北歐木屋色彩研究——為什麼家家戶戶都是這兩種顏色。</p>
+          <span class="cc-link">色彩美學</span>
+        </a>
+        <a class="case-card" href="https://maskywg.github.io/bergen-kaviar/" target="_blank" rel="noopener">
+          <div class="cc-title">卑爾根鱈魚子醬全攻略</div>
+          <p class="cc-desc">從超市貨架上的一條軟管，拆解出的在地飲食文化。</p>
+          <span class="cc-link">卑爾根</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="case-cat reveal">
+      <div class="case-cat-head">
+        <h3>專題三 · 跨領域深度專題</h3>
+        <span class="cat-desc">神話、生態、市政治理——把沿途隨手拍的素材，交給 AI 鑑別歸類</span>
+      </div>
+      <div class="slide-ref">
+        <img src="images/slide-13.jpg" alt="簡報投影片：跨領域專題">
+        <p class="slide-ref-text"><b>Slide 13 / 15</b> 簡報構想的三個跨領域切入點——野鳥與野生動物、北歐神話、城市治理——這三個現在都已經做成獨立站點：</p>
+      </div>
+      <div class="case-grid">
+        <a class="case-card" href="https://maskywg.github.io/yggdrasil-last-night/" target="_blank" rel="noopener">
+          <div class="cc-title">北歐神話：世界樹</div>
+          <p class="cc-desc">Yggdrasil、九界、諸神黃昏，與北歐四國文化景點的互文。</p>
+          <span class="cc-link">神話敘事</span>
+        </a>
+        <a class="case-card" href="https://maskywg.github.io/northeurope-birds/" target="_blank" rel="noopener">
+          <div class="cc-title">沿途野生動物地圖</div>
+          <p class="cc-desc">把每天隨手拍下的北極圈鳥類與植被，交由 AI 鑑別物種與生態習性。</p>
+          <span class="cc-link">生態觀察誌</span>
+        </a>
+        <a class="case-card" href="https://maskywg.github.io/nordic-clean-cities/" target="_blank" rel="noopener">
+          <div class="cc-title">北歐城市為什麼這麼乾淨？</div>
+          <p class="cc-desc">從路邊一個垃圾桶出發，深究垃圾循環發電與低碳政策的公共機制。</p>
+          <span class="cc-link">公共治理</span>
+        </a>
+        <a class="case-card" href="https://maskywg.github.io/fjord-terrain/" target="_blank" rel="noopener">
+          <div class="cc-title">峽灣地形</div>
+          <p class="cc-desc">冰河刻出的地質奇觀——V 形谷到峽灣的三階段形成原理。</p>
+          <span class="cc-link">地質科普</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="phil" id="philosophy">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ⅶ. 心法</span>
+      <h2>這樣旅遊不累嗎？徹底減壓的「無痛採樣哲學」</h2>
+      <p>數位策展式旅行，是用來減壓的，不是用來加重負擔的。</p>
+    </div>
+    <div class="phil-layout reveal">
+      <figure class="figure phil-figure">
+        <img src="images/slide-14.jpg" alt="簡報投影片：無痛採樣哲學">
+        <figcaption>Slide 14 / 15</figcaption>
+      </figure>
+      <div class="phil-grid">
+        <div class="phil-card">
+          <span class="check">✅</span>
+          <h3>放下理解重擔</h3>
+          <p>現場不背歷史、不寫長篇遊記、沒有打卡進度壓力。只管放鬆享受，「按下快門只需一秒鐘」。</p>
+        </div>
+        <div class="phil-card">
+          <span class="check">✅</span>
+          <h3>哪怕只是愛買藥，也能策展</h3>
+          <p>即使是愛逛超市買零食、買保健食品，都能讓 AI 拆解成分與產地歷史，變成精采的「選物指南」。</p>
+        </div>
+        <div class="phil-card">
+          <span class="check">✅</span>
+          <h3>拆禮物的二次愉悅</h3>
+          <p>回國後，像拆禮物一樣看著 AI 補全知識，讓旅行的愉悅感延續數月。這不是交作業，而是享受。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">結語</span>
+      <h2>成為自己旅行的主策展人</h2>
+      <p>打造一份永不貶值的知識庫。</p>
+    </div>
+    <figure class="figure on-dark closing-figure reveal">
+      <img src="images/slide-15.jpg" alt="簡報投影片：成為自己旅行的主策展人">
+      <figcaption style="text-align:center;">Slide 15 / 15</figcaption>
+    </figure>
+    <div class="closing-grid reveal">
+      <div class="closing-card">
+        <h3>💡 AI 不是代工，而是思維放大器</h3>
+        <p>它讓我們以極低的門檻，獲取極高的認知厚度與智力愉悅。</p>
+      </div>
+      <div class="closing-card">
+        <h3>🏛️ 從「經歷」昇華為「作品」</h3>
+        <p>傳統照片會隨時間被遺忘，但數位策展網頁是可持續流通、對話的知識資產。</p>
+      </div>
+      <div class="closing-card">
+        <h3>🌍 分享全新的世界觀</h3>
+        <p>展示的不僅是「我去過哪裡」，更是「我如何理解這個世界」。</p>
+      </div>
+    </div>
+    <p class="closing-final reveal">下一趟旅程，帶著你的相機與錄音鍵出發——<br><b>現場只管感受，剩下的交給 AI。</b></p>
+    <div class="closing-actions reveal">
+      <a class="btn" href="#cases">重新看一次實戰案例</a>
+      <a class="btn ghost" href="https://maskywg.github.io/northeurope/%E5%8C%97%E6%AD%90%E5%9B%9B%E5%9C%8B.html" target="_blank" rel="noopener">前往北歐四國主站</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    整理自個人「AI 數位策展深旅」讀書會分享簡報，以北歐四國 15 日行程為實戰案例。
+    <br>更多獨立主題站點：<a href="https://github.com/Maskywg" target="_blank" rel="noopener">github.com/Maskywg</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.stage-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.stage-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.stage-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+  });
+});
+
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
