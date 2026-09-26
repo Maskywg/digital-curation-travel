@@ -355,6 +355,25 @@ body.lb-open{overflow:hidden;}
 }
 .conclusion-note b{font-style:normal;color:var(--accent-deep);}
 
+
+/* ---------- MORE EXAMPLES ---------- */
+.more{background:var(--bg-alt);border-top:1px solid var(--line);}
+.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+@media(max-width:860px){.more-grid{grid-template-columns:1fr;}}
+.more-card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:32px;box-shadow:var(--shadow);display:flex;flex-direction:column;}
+.more-chip{align-self:flex-start;font-size:0.74rem;letter-spacing:0.1em;font-weight:700;color:var(--accent-deep);background:var(--bg-alt);border:1px solid var(--accent-soft);padding:4px 12px;border-radius:999px;margin-bottom:16px;}
+.more-card h3{font-size:1.3rem;margin-bottom:12px;}
+.more-card > p{font-size:0.95rem;}
+.more-sub-label{font-size:0.78rem;color:var(--ink-faint);margin:6px 0 10px;letter-spacing:0.04em;}
+.more-sub{display:grid;gap:10px;margin-bottom:24px;}
+.more-sub a{display:block;text-decoration:none;border:1px solid var(--line);border-left:3px solid var(--accent-soft);padding:10px 14px;border-radius:2px;transition:.2s;}
+.more-sub a:hover{border-left-color:var(--accent);transform:translateX(3px);}
+.more-sub .ms-t{display:block;font-family:var(--serif);font-weight:700;color:var(--ink);font-size:0.95rem;}
+.more-sub .ms-d{display:block;font-size:0.8rem;color:var(--ink-soft);}
+.more-card .btn{align-self:flex-start;margin-top:auto;}
+.more-note{margin-top:36px;text-align:center;font-family:var(--serif);font-size:1.15rem;color:var(--ink);}
+.more-note b{color:var(--accent-deep);}
+
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
 </style>
@@ -372,6 +391,7 @@ body.lb-open{overflow:hidden;}
       <li><a href="#cases">實戰案例</a></li>
       <li><a href="#philosophy">無痛哲學</a></li>
       <li><a href="#conclusion">結論</a></li>
+      <li><a href="#more">延伸範例</a></li>
     </ul>
   </div>
 </nav>
@@ -869,6 +889,42 @@ body.lb-open{overflow:hidden;}
       <a class="btn" href="#cases">重新看一次實戰案例</a>
       <a class="btn ghost" href="https://maskywg.github.io/northeurope/%E5%8C%97%E6%AD%90%E5%9B%9B%E5%9C%8B.html" target="_blank" rel="noopener">前往北歐四國主站</a>
     </div>
+  </div>
+</section>
+
+<section class="more" id="more">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ⅸ. 延伸範例</span>
+      <h2>同一套方法，兩種用法</h2>
+      <p>北歐是走完之後整理出來的成果。下面兩個，一個還沒出發，一個人根本沒到現場，都用同樣的方式先策展。</p>
+    </div>
+    <div class="more-grid reveal">
+      <div class="more-card">
+        <span class="more-chip">行前策展 · 10 月底出發</span>
+        <h3>富山進富山出 紅葉八日自駕</h3>
+        <p>出發前就先把行程做成數位行程網站，再針對路上會遇到的地方各做一篇深讀。這就是「行前」階段實際的樣子：現場只需要看、拍、感受，理解已經先備好。</p>
+        <div class="more-sub-label">路上會遇到的深讀專題</div>
+        <div class="more-sub">
+          <a href="https://maskywg.github.io/narai-juku/" target="_blank" rel="noopener"><span class="ms-t">奈良井宿</span><span class="ms-d">中山道木曾路的江戶時代秋色</span></a>
+          <a href="https://maskywg.github.io/togakushi-shrine/" target="_blank" rel="noopener"><span class="ms-t">戶隱神社</span><span class="ms-d">天岩戶神話與靈山五社巡禮</span></a>
+          <a href="https://maskywg.github.io/tateyama-kurobe-development/" target="_blank" rel="noopener"><span class="ms-t">立山黑部開發史</span><span class="ms-d">貫穿北阿爾卑斯的二十年</span></a>
+          <a href="https://maskywg.github.io/fugan-canal/" target="_blank" rel="noopener"><span class="ms-t">富岩運河</span><span class="ms-d">從防洪運河到世界最美星巴克的百年蛻變</span></a>
+        </div>
+        <a class="btn" href="https://maskywg.github.io/nagano-toyama-autumn/" target="_blank" rel="noopener">看完整行程 →</a>
+      </div>
+      <div class="more-card">
+        <span class="more-chip">協作策展 · 沒去，也神遊了一遍</span>
+        <h3>義大利極東之旅 12 日</h3>
+        <p>這是協作給同學的行程網頁：弗留利、斯洛維尼亞、克羅埃西亞的邊境行旅。人雖然沒到現場，卻因為整理行程而策展，把整條路線的脈絡神遊了一遍。</p>
+        <div class="more-sub-label">因為策展而長出的深讀專題</div>
+        <div class="more-sub">
+          <a href="https://maskywg.github.io/habsburg-littoral/" target="_blank" rel="noopener"><span class="ms-t">哈布斯堡與義大利極東邊境</span><span class="ms-d">被行程表淡化的百年領土史，附年代表與地圖對照</span></a>
+        </div>
+        <a class="btn" href="https://maskywg.github.io/friuli-far-east/" target="_blank" rel="noopener">看完整行程 →</a>
+      </div>
+    </div>
+    <p class="more-note reveal">策展讓「到現場」不再是理解一個地方的<b>唯一入口</b>。</p>
   </div>
 </section>
 
