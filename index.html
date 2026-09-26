@@ -311,6 +311,24 @@ header.hero{
 footer{padding:40px 0;text-align:center;font-size:0.8rem;color:var(--ink-faint);border-top:1px solid var(--line);}
 footer a{color:var(--accent-deep);text-decoration:none;}
 
+
+/* ---------- LIGHTBOX ---------- */
+img.zoomable{cursor:zoom-in;}
+.lightbox{
+  position:fixed;inset:0;z-index:100;background:rgba(14,12,9,0.94);
+  display:none;align-items:center;justify-content:center;flex-direction:column;
+  padding:24px;cursor:zoom-out;
+}
+.lightbox.open{display:flex;animation:fadein .2s ease;}
+.lightbox img{max-width:100%;max-height:calc(100vh - 90px);width:auto;height:auto;object-fit:contain;border-radius:2px;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+.lightbox-cap{margin-top:14px;color:#d8cfbb;font-size:0.85rem;text-align:center;max-width:800px;}
+.lightbox-close{
+  position:absolute;top:16px;right:20px;width:40px;height:40px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.35);background:transparent;color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;
+}
+.lightbox-close:hover{border-color:var(--ice);color:var(--ice);}
+body.lb-open{overflow:hidden;}
+
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
 </style>
@@ -797,6 +815,12 @@ footer a{color:var(--accent-deep);text-decoration:none;}
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="圖片放大檢視">
+  <button class="lightbox-close" aria-label="關閉">×</button>
+  <img id="lightbox-img" alt="">
+  <div class="lightbox-cap" id="lightbox-cap"></div>
+</div>
+
 <script>
 document.querySelectorAll('.stage-tab').forEach(tab=>{
   tab.addEventListener('click',()=>{
@@ -813,6 +837,31 @@ const io = new IntersectionObserver(entries=>{
   });
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Lightbox: click any content image to view full screen */
+(function(){
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lightbox-img');
+  const lbCap=document.getElementById('lightbox-cap');
+  function open(img){
+    const full=img.getAttribute('src').replace('images/','images/full/');
+    lbImg.src=full;
+    lbImg.onerror=function(){lbImg.onerror=null;lbImg.src=img.src;};
+    lbImg.alt=img.alt;
+    const fc=img.closest('figure')?.querySelector('figcaption');
+    lbCap.textContent=img.alt+(fc?'　·　'+fc.textContent.trim():'');
+    lb.classList.add('open');document.body.classList.add('lb-open');
+  }
+  function close(){lb.classList.remove('open');document.body.classList.remove('lb-open');lbImg.removeAttribute('src');}
+  document.querySelectorAll('.figure img, .slide-ref img, .origin-flow-figure img').forEach(img=>{
+    img.classList.add('zoomable');
+    img.setAttribute('tabindex','0');
+    img.addEventListener('click',()=>open(img));
+    img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(img);}});
+  });
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))close();});
+})();
 </script>
 
 </body>
