@@ -329,6 +329,32 @@ img.zoomable{cursor:zoom-in;}
 .lightbox-close:hover{border-color:var(--ice);color:var(--ice);}
 body.lb-open{overflow:hidden;}
 
+
+/* ---------- CONCLUSION ---------- */
+.conclusion{background:var(--bg);border-top:1px solid var(--line);}
+.conclusion-layout{display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;}
+@media(max-width:880px){.conclusion-layout{grid-template-columns:1fr;gap:32px;}}
+.conclusion-head{position:sticky;top:96px;}
+@media(max-width:880px){.conclusion-head{position:static;}}
+.conclusion-head h2{margin-bottom:18px;}
+.conclusion-head p{font-size:1.02rem;}
+.meaning-list{list-style:none;margin:0;padding:0;counter-reset:m;}
+.meaning-list li{
+  counter-increment:m;position:relative;padding:26px 0 26px 64px;border-bottom:1px solid var(--line);
+}
+.meaning-list li:first-child{border-top:1px solid var(--line);}
+.meaning-list li::before{
+  content:counter(m);position:absolute;left:0;top:22px;
+  font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--accent);line-height:1;
+}
+.meaning-list h3{font-size:1.12rem;margin:0 0 8px;}
+.meaning-list p{margin:0;font-size:0.95rem;}
+.conclusion-note{
+  margin-top:34px;padding:20px 24px;background:var(--paper);border-left:3px solid var(--accent);
+  font-family:var(--serif);font-style:italic;color:var(--ink);box-shadow:var(--shadow);
+}
+.conclusion-note b{font-style:normal;color:var(--accent-deep);}
+
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
 </style>
@@ -345,6 +371,7 @@ body.lb-open{overflow:hidden;}
       <li><a href="#stages">三階段 SOP</a></li>
       <li><a href="#cases">實戰案例</a></li>
       <li><a href="#philosophy">無痛哲學</a></li>
+      <li><a href="#conclusion">結論</a></li>
     </ul>
   </div>
 </nav>
@@ -770,6 +797,43 @@ body.lb-open{overflow:hidden;}
           <h3>拆禮物的二次愉悅</h3>
           <p>回國後，像拆禮物一樣看著 AI 補全知識，讓旅行的愉悅感延續數月。這不是交作業，而是享受。</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="conclusion" id="conclusion">
+  <div class="wrap">
+    <div class="conclusion-layout">
+      <div class="conclusion-head reveal">
+        <span class="eyebrow">Ⅷ. 結論</span>
+        <h2>旅行的意義，<br>不在抵達，而在理解。</h2>
+        <p>當工具接手了查證與整理，旅行剩下的，就是最本質的那幾件事。</p>
+      </div>
+      <div class="reveal">
+        <ol class="meaning-list">
+          <li>
+            <h3>從「抵達」，到「理解」</h3>
+            <p>過去算有沒有到過，現在算帶回多少脈絡。現場只停留一小時，只要讀懂了背後的地理、歷史與生活，就是深度。</p>
+          </li>
+          <li>
+            <h3>從「一次」，到「可重返」</h3>
+            <p>照片會被遺忘，策展網頁可以重讀、重走。旅行不在回程結束，行前、當下、事後連成一條線，拆禮物的愉悅可以延續數月。</p>
+          </li>
+          <li>
+            <h3>從「接收」，到「提問」</h3>
+            <p>帶著母題出發，一塊解說牌、一個路邊的垃圾桶，都是一個問題。旅行變成與世界對話的方式。</p>
+          </li>
+          <li>
+            <h3>把現場，還給感官</h3>
+            <p>理解交給雲端，人才敢放下背書的壓力，只負責看、嚐、感受。工具的用意，是讓體驗更純粹，不是取代體驗。</p>
+          </li>
+          <li>
+            <h3>從「記憶」，到「世界觀」</h3>
+            <p>展示的不只是「我去過哪裡」，而是「我如何理解這個世界」。旅行的成果，從一疊相簿，變成一份作品。</p>
+          </li>
+        </ol>
+        <p class="conclusion-note">意義沒有被外包。AI 補全的脈絡需要查證，拍什麼、問什麼、留下什麼，仍然是自己的判斷——<b>「策展」的意義，就在選擇。</b></p>
       </div>
     </div>
   </div>
