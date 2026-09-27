@@ -127,6 +127,7 @@ header.hero{
 }
 .hero-figure figcaption{text-align:center;}
 
+.hero-quote.local{margin-top:18px;}
 .hero-quote.local p{margin:0 0 4px;font-style:normal;color:var(--ink-soft);line-height:1.85;}
 .hero-quote.local p.turn{margin-top:12px;color:var(--ink);font-weight:700;font-size:1.25em;}
 .hero-quote.local small{display:block;margin-top:12px;font-size:0.8rem;font-style:normal;color:var(--ink-faint);}
@@ -1106,13 +1107,14 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))close();});
 })();
 
-/* Optional local-only slogan (slogan.local.js is git-ignored, so it never reaches the public site) */
+/* Optional local-only slogan, shown below the default quote (slogan.local.js is git-ignored, so it never reaches the public site) */
 (function(){
-  const cfg=window.LOCAL_SLOGAN, box=document.getElementById('hero-quote');
-  if(!cfg||!box||!Array.isArray(cfg.lines)||!cfg.lines.length)return;
-  box.classList.add('local');box.textContent='';
+  const cfg=window.LOCAL_SLOGAN, base=document.getElementById('hero-quote');
+  if(!cfg||!base||!Array.isArray(cfg.lines)||!cfg.lines.length)return;
+  const box=document.createElement('div');box.className='hero-quote local';
   cfg.lines.forEach((t,i)=>{const p=document.createElement('p');p.textContent=t;if(i===cfg.lines.length-1&&cfg.lines.length>1)p.className='turn';box.appendChild(p);});
   if(cfg.credit){const c=document.createElement('small');c.textContent='——'+cfg.credit;box.appendChild(c);}
+  base.insertAdjacentElement('afterend',box);
 })();
 </script>
 
