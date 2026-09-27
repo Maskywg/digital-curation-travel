@@ -126,6 +126,10 @@ header.hero{
   color:var(--ink);box-shadow:var(--shadow);
 }
 .hero-figure figcaption{text-align:center;}
+
+.hero-quote.local p{margin:0 0 4px;font-style:normal;color:var(--ink-soft);line-height:1.85;}
+.hero-quote.local p.turn{margin-top:12px;color:var(--ink);font-weight:700;font-size:1.25em;}
+.hero-quote.local small{display:block;margin-top:12px;font-size:0.8rem;font-style:normal;color:var(--ink-faint);}
 .scrolldown{
   margin-top:44px;display:inline-flex;align-items:center;gap:10px;
   font-size:0.82rem;color:var(--ink-faint);text-decoration:none;
@@ -438,7 +442,7 @@ body.lb-open{overflow:hidden;}
       <span class="eyebrow">AI 賦能的深度旅行方法論</span>
       <h1>從走馬看花，<br>到數位策展。</h1>
       <p class="lede">如何用 AI 把隨手拍的旅行照片與零碎筆記，變成一份可以被重新閱讀、重新走一遍的策展級個人知識庫——以北歐四國 15 日實戰案例為例。</p>
-      <div class="hero-quote">「深度旅行不再取決於待了多久，而取決於你帶回了多少認知厚度。」</div>
+      <div class="hero-quote" id="hero-quote">「深度旅行不再取決於待了多久，而取決於你帶回了多少認知厚度。」</div>
       <a href="#pain" class="scrolldown"><span class="dot"></span> 往下看，先從痛點說起</a>
     </div>
     <figure class="figure hero-figure reveal">
@@ -1059,6 +1063,7 @@ body.lb-open{overflow:hidden;}
   <div class="lightbox-cap" id="lightbox-cap"></div>
 </div>
 
+<script src="slogan.local.js"></script>
 <script>
 document.querySelectorAll('.stage-tab').forEach(tab=>{
   tab.addEventListener('click',()=>{
@@ -1099,6 +1104,15 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   });
   lb.addEventListener('click',close);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))close();});
+})();
+
+/* Optional local-only slogan (slogan.local.js is git-ignored, so it never reaches the public site) */
+(function(){
+  const cfg=window.LOCAL_SLOGAN, box=document.getElementById('hero-quote');
+  if(!cfg||!box||!Array.isArray(cfg.lines)||!cfg.lines.length)return;
+  box.classList.add('local');box.textContent='';
+  cfg.lines.forEach((t,i)=>{const p=document.createElement('p');p.textContent=t;if(i===cfg.lines.length-1&&cfg.lines.length>1)p.className='turn';box.appendChild(p);});
+  if(cfg.credit){const c=document.createElement('small');c.textContent='——'+cfg.credit;box.appendChild(c);}
 })();
 </script>
 
