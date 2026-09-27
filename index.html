@@ -8,7 +8,16 @@
 <meta property="og:title" content="從走馬看花到數位策展｜AI 數位策展深旅方法論">
 <meta property="og:description" content="AI 賦能的數位策展深度旅行方法論，以北歐四國 15 日為實戰案例。">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/slide-01.jpg">
+<meta property="og:image" content="https://maskywg.github.io/digital-curation-travel/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://maskywg.github.io/digital-curation-travel/">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="從走馬看花到數位策展｜AI 數位策展深旅方法論">
+<meta name="twitter:description" content="你去過的每個地方，怎麼會留在靈魂記憶裡？用 AI 把旅行變成可重讀的個人知識庫。">
+<meta name="twitter:image" content="https://maskywg.github.io/digital-curation-travel/og-image.jpg">
+
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 <style>
 :root{
@@ -374,6 +383,32 @@ body.lb-open{overflow:hidden;}
 .more-note{margin-top:36px;text-align:center;font-family:var(--serif);font-size:1.15rem;color:var(--ink);}
 .more-note b{color:var(--accent-deep);}
 
+
+/* ---------- MOTIVE ---------- */
+.motive{background:var(--paper);border-bottom:1px solid var(--line);}
+.motive-head{max-width:760px;margin-bottom:40px;}
+.motive-head h2{font-size:clamp(1.8rem,4vw,2.7rem);}
+.motive-head p{font-size:1.05rem;}
+.motive-lead{margin:0 0 64px;}
+.motive-lead img{width:100%;}
+.motive-row{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;margin-bottom:64px;}
+.motive-row.rev{grid-template-columns:1fr 1.05fr;}
+.motive-row.rev .figure{order:2;}
+@media(max-width:820px){.motive-row,.motive-row.rev{grid-template-columns:1fr;gap:22px;margin-bottom:48px;}.motive-row.rev .figure{order:0;}}
+.motive-num{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1;display:block;margin-bottom:8px;}
+.motive-row h3{font-size:1.4rem;margin-bottom:6px;}
+.motive-why{font-family:var(--serif);font-style:italic;color:var(--ink-soft);margin:0 0 18px;font-size:1rem;}
+.motive-pair{display:grid;gap:12px;}
+.motive-pair > div{padding:12px 16px;border-radius:2px;font-size:0.93rem;}
+.motive-pair .usual{background:var(--bg);color:var(--ink-soft);}
+.motive-pair .usual b{color:var(--ink-faint);}
+.motive-pair .help{background:var(--bg-alt);border-left:3px solid var(--accent);color:var(--ink);}
+.motive-pair b{display:block;font-size:0.72rem;letter-spacing:0.12em;margin-bottom:2px;}
+.motive-pair .help b{color:var(--accent-deep);}
+.motive-quote{text-align:center;font-family:var(--serif);font-size:clamp(1.3rem,2.8vw,1.9rem);line-height:1.6;margin:8px 0 10px;color:var(--ink);}
+.motive-quote b{color:var(--accent-deep);}
+.motive-note{text-align:center;font-size:0.8rem;color:var(--ink-faint);margin:0;}
+
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
 </style>
@@ -384,6 +419,7 @@ body.lb-open{overflow:hidden;}
   <div class="wrap">
     <div class="navmark">數位策展深旅</div>
     <ul class="navlinks">
+      <li><a href="#motive">動機</a></li>
       <li><a href="#pain">痛點</a></li>
       <li><a href="#reframe">認知厚度</a></li>
       <li><a href="#concept">什麼是策展式旅行</a></li>
@@ -411,6 +447,79 @@ body.lb-open{overflow:hidden;}
     </figure>
   </div>
 </header>
+
+<section class="motive" id="motive">
+  <div class="wrap">
+    <div class="motive-head reveal">
+      <span class="eyebrow">起心動念</span>
+      <h2>你去過的每個地方，<br>怎麼會留在靈魂記憶裡？</h2>
+      <p>照片只能證明你到過。真正留下來的，是一個有名字、有故事、跟你有關、還會被再想起的地方。這個網頁想回答的，就是怎麼讓每一個地方，都成為這樣的地方。</p>
+    </div>
+    <figure class="figure motive-lead reveal"><img src="images/motive-0.jpg" alt="旅人背對鏡頭，站在峽灣邊看著黃昏的水面與雲霧，手機垂在身側"></figure>
+    <div class="motive-row reveal">
+      <figure class="figure"><img src="images/motive-1.jpg" alt="手機正對著石牆上一塊銅綠色的老銘牌拍照" loading="lazy"></figure>
+      <div>
+        <span class="motive-num">1</span>
+        <h3>它有名字，也有故事</h3>
+        <p class="motive-why">我們記得的是意義，不是像素。</p>
+        <div class="motive-pair">
+          <div class="usual"><b>平常的旅行</b>拍了一堆「不知道那是什麼」的照片，過幾個月，就成了陌生的風景。</div>
+          <div class="help"><b>策展深旅怎麼幫你</b>錨點拍照留下解說牌與銘牌，回來讓 AI 補全脈絡。照片就有了身世。</div>
+        </div>
+      </div>
+    </div>
+    <div class="motive-row rev reveal">
+      <figure class="figure"><img src="images/motive-2.jpg" alt="旅人坐在遊覽車窗邊，對著手機低聲錄下語音筆記，窗外是雲霧中的峽灣" loading="lazy"></figure>
+      <div>
+        <span class="motive-num">2</span>
+        <h3>它留著當下的感官</h3>
+        <p class="motive-why">情緒會隨著行程往下走而淡去。</p>
+        <div class="motive-pair">
+          <div class="usual"><b>平常的旅行</b>情緒和味道，都留在那一刻，回到家就想不起來。</div>
+          <div class="help"><b>策展深旅怎麼幫你</b>30 秒語音碎記，把「水色偏乳藍」「果酸明亮」留住，那是最真實的第一手。</div>
+        </div>
+      </div>
+    </div>
+    <div class="motive-row reveal">
+      <figure class="figure"><img src="images/motive-3.jpg" alt="雨夜裡，人窩在沙發上，用筆電翻看自己做的旅行網頁，手邊一杯熱茶" loading="lazy"></figure>
+      <div>
+        <span class="motive-num">3</span>
+        <h3>它被一次次想起</h3>
+        <p class="motive-why">記憶靠一次次重新讀取，才不會褪色。</p>
+        <div class="motive-pair">
+          <div class="usual"><b>平常的旅行</b>相簿放進雲端，很少再打開。</div>
+          <div class="help"><b>策展深旅怎麼幫你</b>做成可重讀、可重走的網頁。「拆禮物」的二次愉悅，就是一次次重新讀取。</div>
+        </div>
+      </div>
+    </div>
+    <div class="motive-row rev reveal">
+      <figure class="figure"><img src="images/motive-4.jpg" alt="旅人拿著小筆記本，抬頭望著一棟紅色木屋，正寫下自己的問題" loading="lazy"></figure>
+      <div>
+        <span class="motive-num">4</span>
+        <h3>它與你有關</h3>
+        <p class="motive-why">帶著自己的問題去看，才會記得自己的答案。</p>
+        <div class="motive-pair">
+          <div class="usual"><b>平常的旅行</b>跟著導遊的說法走，記的是別人的故事。</div>
+          <div class="help"><b>策展深旅怎麼幫你</b>行前設定觀察母題，每個景點都掛在你自己的提問上。</div>
+        </div>
+      </div>
+    </div>
+    <div class="motive-row reveal">
+      <figure class="figure"><img src="images/motive-5.jpg" alt="三位朋友圍著木桌看平板上的旅行照片，其中一人比著手勢說故事" loading="lazy"></figure>
+      <div>
+        <span class="motive-num">5</span>
+        <h3>它被說給別人聽</h3>
+        <p class="motive-why">把它講清楚的那一刻，你才真的記住了。</p>
+        <div class="motive-pair">
+          <div class="usual"><b>平常的旅行</b>相簿只有自己看，很快就不再被提起。</div>
+          <div class="help"><b>策展深旅怎麼幫你</b>做成專題站，別人能點進來。分享時得把它講清楚，也就記得更牢。</div>
+        </div>
+      </div>
+    </div>
+    <p class="motive-quote reveal">照片只能證明你到過，<br>策展才讓那個地方成為<b>「你的」</b>。</p>
+    <p class="motive-note reveal">以上是拿一般對記憶的理解來對照，並非嚴謹的實驗結論。頁面中的情境照片皆為 AI 生成的示意圖。</p>
+  </div>
+</section>
 
 <section class="pain" id="pain">
   <div class="wrap">
