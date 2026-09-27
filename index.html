@@ -127,10 +127,11 @@ header.hero{
 }
 .hero-figure figcaption{text-align:center;}
 
-.hero-quote.local{margin-top:18px;}
-.hero-quote.local p{margin:0 0 4px;font-style:normal;color:var(--ink-soft);line-height:1.85;}
-.hero-quote.local p.turn{margin-top:12px;color:var(--ink);font-weight:700;font-size:1.25em;}
-.hero-quote.local small{display:block;margin-top:12px;font-size:0.8rem;font-style:normal;color:var(--ink-faint);}
+
+.hero-video{margin:22px 0 0;}
+.hero-video-frame{position:relative;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;box-shadow:var(--shadow);}
+.hero-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.hero-video figcaption{margin-top:10px;font-size:0.78rem;color:var(--ink-faint);}
 .scrolldown{
   margin-top:44px;display:inline-flex;align-items:center;gap:10px;
   font-size:0.82rem;color:var(--ink-faint);text-decoration:none;
@@ -443,7 +444,13 @@ body.lb-open{overflow:hidden;}
       <span class="eyebrow">AI 賦能的深度旅行方法論</span>
       <h1>從走馬看花，<br>到數位策展。</h1>
       <p class="lede">如何用 AI 把隨手拍的旅行照片與零碎筆記，變成一份可以被重新閱讀、重新走一遍的策展級個人知識庫——以北歐四國 15 日實戰案例為例。</p>
-      <div class="hero-quote" id="hero-quote">「深度旅行不再取決於待了多久，而取決於你帶回了多少認知厚度。」</div>
+      <div class="hero-quote">「深度旅行不再取決於待了多久，而取決於你帶回了多少認知厚度。」</div>
+      <figure class="hero-video">
+        <div class="hero-video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/tv95k0zqnaA?start=92&end=152&rel=0" title="陳綺貞〈旅行的意義〉官方 MV（1:32–2:32）" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <figcaption>陳綺貞〈旅行的意義〉官方 MV，播放 1:32–2:32 · 作詞：陳綺貞</figcaption>
+      </figure>
       <a href="#pain" class="scrolldown"><span class="dot"></span> 往下看，先從痛點說起</a>
     </div>
     <figure class="figure hero-figure reveal">
@@ -1064,7 +1071,6 @@ body.lb-open{overflow:hidden;}
   <div class="lightbox-cap" id="lightbox-cap"></div>
 </div>
 
-<script src="slogan.local.js"></script>
 <script>
 document.querySelectorAll('.stage-tab').forEach(tab=>{
   tab.addEventListener('click',()=>{
@@ -1107,15 +1113,6 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))close();});
 })();
 
-/* Optional local-only slogan, shown below the default quote (slogan.local.js is git-ignored, so it never reaches the public site) */
-(function(){
-  const cfg=window.LOCAL_SLOGAN, base=document.getElementById('hero-quote');
-  if(!cfg||!base||!Array.isArray(cfg.lines)||!cfg.lines.length)return;
-  const box=document.createElement('div');box.className='hero-quote local';
-  cfg.lines.forEach((t,i)=>{const p=document.createElement('p');p.textContent=t;if(i===cfg.lines.length-1&&cfg.lines.length>1)p.className='turn';box.appendChild(p);});
-  if(cfg.credit){const c=document.createElement('small');c.textContent='——'+cfg.credit;box.appendChild(c);}
-  base.insertAdjacentElement('afterend',box);
-})();
 </script>
 
 </body>
