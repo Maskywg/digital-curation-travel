@@ -385,7 +385,9 @@ body.lb-open{overflow:hidden;}
 /* ---------- MORE EXAMPLES ---------- */
 .more{background:var(--bg-alt);border-top:1px solid var(--line);}
 .more-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-@media(max-width:860px){.more-grid{grid-template-columns:1fr;}}
+.more-grid .more-card:nth-child(3):last-child{grid-column:1/-1;}
+.more-grid .more-card:nth-child(3):last-child .more-sub{grid-template-columns:1fr 1fr;}
+@media(max-width:860px){.more-grid{grid-template-columns:1fr;}.more-grid .more-card:nth-child(3):last-child .more-sub{grid-template-columns:1fr;}}
 .more-card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:32px;box-shadow:var(--shadow);display:flex;flex-direction:column;}
 .more-chip{align-self:flex-start;font-size:0.74rem;letter-spacing:0.1em;font-weight:700;color:var(--accent-deep);background:var(--bg-alt);border:1px solid var(--accent-soft);padding:4px 12px;border-radius:999px;margin-bottom:16px;}
 .more-card h3{font-size:1.3rem;margin-bottom:12px;}
@@ -1026,8 +1028,8 @@ body.lb-open{overflow:hidden;}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Ⅸ. 延伸範例</span>
-      <h2>同一套方法，兩種用法</h2>
-      <p>北歐是走完之後整理出來的成果。下面兩個，一個還沒出發，一個人根本沒到現場，都用同樣的方式先策展。</p>
+      <h2>同一套方法，三種用法</h2>
+      <p>北歐是走完之後整理出來的成果。下面三個，一個還沒出發，一個人根本沒到現場，還有一個連「有人去過」都不需要——都用同樣的方式先策展。</p>
     </div>
     <div class="more-grid reveal">
       <div class="more-card">
@@ -1055,6 +1057,19 @@ body.lb-open{overflow:hidden;}
           <a href="https://maskywg.github.io/vintgar-gorge-guide/" target="_blank" rel="noopener"><span class="ms-t">文特高峽谷 Vintgar Gorge</span><span class="ms-d">健行觀看重點、互動路線地圖與沉浸溪流聲</span></a>
         </div>
         <a class="btn" href="https://maskywg.github.io/friuli-far-east/" target="_blank" rel="noopener">看完整行程 →</a>
+      </div>
+      <div class="more-card">
+        <span class="more-chip">轉譯策展 · 素材是別人拍的一支長片</span>
+        <h3>葡萄牙的奇觀｜陸止於此，海始於斯</h3>
+        <p>整理自 YouTube《Unreal Atlas 異境》一支 81 分鐘的 4K 空拍紀錄片。這次連「有人親自去過」都不需要——素材不是自己的照片，是別人拍好的長片。把它拆成 32 個影片節點，各自配上照片、地圖定位與交通說明，還能就地播放對應段落，是把別人的一支長片，策展成一份可以逐段定位的知識庫。</p>
+        <div class="more-sub-label">拆解出的 32 個節點，例如</div>
+        <div class="more-sub">
+          <a href="https://maskywg.github.io/portugal-wonders/#n-sete" target="_blank" rel="noopener"><span class="ms-t">七城湖 Sete Cidades</span><span class="ms-d">亞速爾群島休眠火山口裡的雙生湖</span></a>
+          <a href="https://maskywg.github.io/portugal-wonders/#n-pena" target="_blank" rel="noopener"><span class="ms-t">佩納宮 Pena Palace</span><span class="ms-d">辛特拉山頂上的浪漫主義宮殿群</span></a>
+          <a href="https://maskywg.github.io/portugal-wonders/#n-bomjesus" target="_blank" rel="noopener"><span class="ms-t">山上仁慈耶穌朝聖所</span><span class="ms-d">布拉加的之字形朝聖階梯</span></a>
+          <a href="https://maskywg.github.io/portugal-wonders/#n-caboroca" target="_blank" rel="noopener"><span class="ms-t">羅卡角 Cabo da Roca</span><span class="ms-d">歐洲大陸最西端，陸止於此，海始於斯</span></a>
+        </div>
+        <a class="btn" href="https://maskywg.github.io/portugal-wonders/" target="_blank" rel="noopener">看完整節點 →</a>
       </div>
     </div>
     <p class="more-note reveal">策展讓「到現場」不再是理解一個地方的<b>唯一入口</b>。</p>
