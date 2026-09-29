@@ -399,6 +399,13 @@ body.lb-open{overflow:hidden;}
 .more-sub .ms-t{display:block;font-family:var(--serif);font-weight:700;color:var(--ink);font-size:0.95rem;}
 .more-sub .ms-d{display:block;font-size:0.8rem;color:var(--ink-soft);}
 .more-card .btn{align-self:flex-start;margin-top:auto;}
+.transl-item{padding-top:22px;margin-top:22px;border-top:1px dashed var(--line);}
+.transl-item:first-of-type{padding-top:0;margin-top:6px;border-top:0;}
+.transl-item h4{font-family:var(--serif);font-size:1.05rem;margin:0 0 4px;color:var(--ink);}
+.transl-src{display:block;font-size:0.78rem;color:var(--ink-faint);margin-bottom:14px;}
+.transl-item .more-sub{margin-bottom:14px;}
+.transl-link{font-size:0.82rem;color:var(--accent-deep);text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+.transl-link:hover{text-decoration:underline;}
 .more-note{margin-top:36px;text-align:center;font-family:var(--serif);font-size:1.15rem;color:var(--ink);}
 .more-note b{color:var(--accent-deep);}
 
@@ -1059,17 +1066,33 @@ body.lb-open{overflow:hidden;}
         <a class="btn" href="https://maskywg.github.io/friuli-far-east/" target="_blank" rel="noopener">看完整行程 →</a>
       </div>
       <div class="more-card">
-        <span class="more-chip">轉譯策展 · 素材是別人拍的一支長片</span>
-        <h3>葡萄牙的奇觀｜陸止於此，海始於斯</h3>
-        <p>整理自 YouTube《Unreal Atlas 異境》一支 81 分鐘的 4K 空拍紀錄片。這次連「有人親自去過」都不需要——素材不是自己的照片，是別人拍好的長片。把它拆成 32 個影片節點，各自配上照片、地圖定位與交通說明，還能就地播放對應段落，是把別人的一支長片，策展成一份可以逐段定位的知識庫。</p>
-        <div class="more-sub-label">拆解出的 32 個節點，例如</div>
-        <div class="more-sub">
-          <a href="https://maskywg.github.io/portugal-wonders/#n-sete" target="_blank" rel="noopener"><span class="ms-t">七城湖 Sete Cidades</span><span class="ms-d">亞速爾群島休眠火山口裡的雙生湖</span></a>
-          <a href="https://maskywg.github.io/portugal-wonders/#n-pena" target="_blank" rel="noopener"><span class="ms-t">佩納宮 Pena Palace</span><span class="ms-d">辛特拉山頂上的浪漫主義宮殿群</span></a>
-          <a href="https://maskywg.github.io/portugal-wonders/#n-bomjesus" target="_blank" rel="noopener"><span class="ms-t">山上仁慈耶穌朝聖所</span><span class="ms-d">布拉加的之字形朝聖階梯</span></a>
-          <a href="https://maskywg.github.io/portugal-wonders/#n-caboroca" target="_blank" rel="noopener"><span class="ms-t">羅卡角 Cabo da Roca</span><span class="ms-d">歐洲大陸最西端，陸止於此，海始於斯</span></a>
+        <span class="more-chip">轉譯策展 · 素材是別人拍的長片</span>
+        <h3>把別人拍的長片，拆成能逐段定位的知識庫</h3>
+        <p>這次連「有人親自去過」都不需要——素材不是自己的照片，是 YouTube 上別人拍好的長片。把幾十分鐘的影片拆成一個個節點，各自配上照片、地圖定位與交通說明，還能就地播放對應段落。</p>
+
+        <div class="transl-item">
+          <h4>北歐十大童話小鎮｜從彩色漁村到史詩峽灣</h4>
+          <span class="transl-src">整理自 YouTube 影片・10 個小鎮節點</span>
+          <div class="more-sub">
+            <a href="https://maskywg.github.io/nordic-ten-towns/#town-1" target="_blank" rel="noopener"><span class="ms-t">蓋朗厄爾 Geiranger</span><span class="ms-d">挪威史詩峽灣深處的童話小鎮</span></a>
+            <a href="https://maskywg.github.io/nordic-ten-towns/#town-2" target="_blank" rel="noopener"><span class="ms-t">雷訥 Reine</span><span class="ms-d">羅浮敦群島最上鏡的漁村</span></a>
+            <a href="https://maskywg.github.io/nordic-ten-towns/#town-6" target="_blank" rel="noopener"><span class="ms-t">維斯比 Visby</span><span class="ms-d">哥特蘭島上的中世紀玫瑰古城</span></a>
+            <a href="https://maskywg.github.io/nordic-ten-towns/#town-10" target="_blank" rel="noopener"><span class="ms-t">斯莫根 Smögen</span><span class="ms-d">瑞典西海岸的彩色漁村</span></a>
+          </div>
+          <a class="transl-link" href="https://maskywg.github.io/nordic-ten-towns/" target="_blank" rel="noopener">看完整 10 個小鎮 →</a>
         </div>
-        <a class="btn" href="https://maskywg.github.io/portugal-wonders/" target="_blank" rel="noopener">看完整節點 →</a>
+
+        <div class="transl-item">
+          <h4>葡萄牙的奇觀｜陸止於此，海始於斯</h4>
+          <span class="transl-src">整理自《Unreal Atlas 異境》81 分鐘 4K 空拍紀錄片・32 個節點</span>
+          <div class="more-sub">
+            <a href="https://maskywg.github.io/portugal-wonders/#n-sete" target="_blank" rel="noopener"><span class="ms-t">七城湖 Sete Cidades</span><span class="ms-d">亞速爾群島休眠火山口裡的雙生湖</span></a>
+            <a href="https://maskywg.github.io/portugal-wonders/#n-pena" target="_blank" rel="noopener"><span class="ms-t">佩納宮 Pena Palace</span><span class="ms-d">辛特拉山頂上的浪漫主義宮殿群</span></a>
+            <a href="https://maskywg.github.io/portugal-wonders/#n-bomjesus" target="_blank" rel="noopener"><span class="ms-t">山上仁慈耶穌朝聖所</span><span class="ms-d">布拉加的之字形朝聖階梯</span></a>
+            <a href="https://maskywg.github.io/portugal-wonders/#n-caboroca" target="_blank" rel="noopener"><span class="ms-t">羅卡角 Cabo da Roca</span><span class="ms-d">歐洲大陸最西端，陸止於此，海始於斯</span></a>
+          </div>
+          <a class="transl-link" href="https://maskywg.github.io/portugal-wonders/" target="_blank" rel="noopener">看完整 32 個節點 →</a>
+        </div>
       </div>
     </div>
     <p class="more-note reveal">策展讓「到現場」不再是理解一個地方的<b>唯一入口</b>。</p>
